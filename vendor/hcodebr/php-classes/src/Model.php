@@ -12,7 +12,7 @@ class Model{
 		//exit;
 
 		switch($method){
-			case "get": return $this->values[$fieldName]; break;
+			case "get": return  isset($this->values[$fieldName]) ? $this->values[$fieldName] : NULL; break;
 			case "set": return $this->values[$fieldName] = $args[0]; break;
 		}
 	}
