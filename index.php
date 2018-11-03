@@ -16,6 +16,21 @@ require_once("admin-categories.php");
 require_once("admin-products.php");
 //require_once("admin-orders.php");
 
+$app->get("/categories/:idcategory", function($idcategory){
+
+	$category = new Category();
+	
+	$category->get((int)$idcategory);
+
+	$page = new Page();
+	
+	$page->setTpl("category", [
+		'category'=>$category->getValues(),
+		'products'=>[]
+	]);
+
+});
+
 $app->run();
 
  ?>
